@@ -2,26 +2,51 @@
 
 /**
  * HARD:
- * Create two buttons in an HTML file and link it to this JavaScript file for this to work.
- * one button turns the background color of its button square to red when clicked.
- * The other button turns the background color to blue when clicked.
- *
- * No functions for required, use the DOM
+ * @class PatientInformation
+ * @classdesc Create either a class or a function with clousres called patientInformation.
+ * It should contain at least two properties `name` and `ssn`.
+ * The `name` property does not need to be private and can be fetched directly,
+ * but the `ssn` property should only be manipulated through the use of `getters` and `setters`
+ * you should not be able to get the value of ssn directly from where it is defined.
  */
 
-const buttonOne = document.querySelector(".button-one");
-const buttonTwo = document.querySelector(".button-two");
+// *** Solution using closures ***
+const patientInformation = () => {
+  const names = "Justin";
+  const ssn = "123-45-6789";
 
-buttonOne.addEventListener("mousedown", () => {
-  buttonOne.style.backgroundColor = "red";
-  buttonOne.addEventListener("mouseup", () => {
-    buttonOne.style.backgroundColor = "";
-  });
-});
+  const getName = () => names;
 
-buttonTwo.addEventListener("mousedown", () => {
-  buttonTwo.style.backgroundColor = "blue";
-  buttonTwo.addEventListener("mouseup", () => {
-    buttonTwo.style.backgroundColor = "";
-  });
-});
+  const getSSN = () => ssn;
+
+  return {
+    getName,
+    getSSN,
+  };
+};
+
+const patient1 = patientInformation();
+
+console.log("closure:", patient1.names);
+console.log("closure:", patient1.ssn);
+console.log("closure:", patient1.getName());
+console.log("closure:", patient1.getSSN());
+
+// *** Solution using a class ***
+class PatientInformation {
+  #names = "John";
+  #ssn = "987-65-4321";
+
+  getName() {
+    return this.#names;
+  }
+  getSSN() {
+    return this.#ssn;
+  }
+}
+
+const patient2 = new PatientInformation();
+console.log("class:", patient2.names);
+console.log("class:", patient2.ssn);
+console.log("class:", patient2.getName());
+console.log("class:", patient2.getSSN());

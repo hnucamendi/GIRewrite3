@@ -11,9 +11,8 @@
  */
 
 const sharePizza = (slices) => (people) =>
-  `Each person gets ${(slices / people).toFixed(
-    2
-  )} slices of pizza; from our ${slices} slice pizza`;
+  `Each person gets ${(slices / people).toFixed(2)} 
+slices of pizza; from our ${slices} slice pizza`;
 
 console.log(sharePizza(8)(2)); // Output: Each person gets 4 slices of pizza; from our 8 slice pizza
 console.log(sharePizza(8)(3)); // Output: Each person gets 2.67 slices of pizza; from our 8 slice pizza

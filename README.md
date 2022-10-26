@@ -61,38 +61,69 @@ Note: you should only write one function that can dynamically print the value of
 Example:
 
 ```JavaScript
-var sharePizza = cutPizzaSlices(8);
-console.log(sharePizza(2));
-  // prints "Each person gets 4.00 slices of pizza"
-console.log(sharePizza(3));
-  // prints "Each person gets 2.67 slices of pizza"
+console.log(sharePizza(8)(2)); // Output: Each person gets 4 slices of pizza; from our 8 slice pizza
+console.log(sharePizza(8)(3)); // Output: Each person gets 2.67 slices of pizza; from our 8 slice pizza
+console.log(sharePizza(21)(20)); // Output: Each person gets 1.05 slices of pizza; from our 21 slice pizza
+console.log(sharePizza(10)(3)); // Output:Each person gets 3.33 slices of pizza; from our 10 slice pizza
 ```
 
 ## [HARD](./GI3/Hard/):
 
-Data security exercise. Inside of a closure, create an object called pii (Personally Identifiable Information)that cannot be accessed directly. The object should have at least two properties: name and ssn. Only the name property should be accessible, and it should be called through a public function. The ssn property should not be accessible at all.
-Creating private objects and private properties helps you control who has access to what data and helps you prevent people who shouldn't see important info like social security numbers from getting access to the data.
-You can use 'getName' or other get methods to access data that people might need. For example, people addressing a package or email may need a customer's name, but they definitely shouldn't have access to their ssn.
+Create either a class or a function with clousres called `patientInformation`. It should contain at least two properties `name` and `ssn`. The `name` property does not need to be private and can be fetched directly, but the `ssn` property should only be manipulated through the use of `getters` you should not be able to get the value of ssn directly from where it is defined.
+
+```JavaScript
+console.log(patient2.names); // Output: Undefined
+console.log(patient2.ssn); // Output: Undefined
+console.log(patient2.getName()); // Output: John
+console.log(patient2.getSSN()); // Output: 123-45-6789
+```
 
 ## [VERY HARD](./GI3/Very%20Hard/):
 
-Object prototype chain and prototypal inheritance exercise.
+Object prototype chain and prototypal inheritance exercise
 
-1. Create a Person constructor that has three properties: name, job, and age.
-2. Give the Person an 'exercise' method that console logs whatever you want, e.g. "Running is fun! - said no one ever".
-3. Give the Person a 'fetchJob' method that console logs the person's name and job, e.g. "Brad is a back-end developer".
-4. Create a Programmer constructor that inherits all the members from Person with an additional 'languages' property that is passed in and a busy property that is NOT passed in and is set to true by default.
-5. Give the Programmer a 'completeTask' method that updates the busy property on that programmer to be false. Also give the Programmer an 'acceptNewTask' method that updates the busy property on that programmer to be true.
-6. Give the Programmer an 'offerNewTask' method that console logs one thing if the programmer is busy and another if the programmer is not, e.g. should initially log out "Mark can't accept any new tasks right now." and "Mark would love to take on a new responsibility." if the programmer is not busy.
-7. Give the Programmer 'learnLanguage' and 'listLanguages' methods that add new languages to the programmer and list off all languages the programmer knows.
+1. Create a Person constructor that has three properties: `name`, `job`, and `age`.
+2. Give the Person an `exercise` method that logs some message to the console e.g. `Running is fun! - said no one ever`.
+3. Give the Person a `fetchJob` method that console logs the person's `name` and `job`, e.g. `Brad is a back-end developer`.
+4. Create a Programmer constructor that inherits all the members from Person with an additional `languages` property that is passed in and a busy property that is NOT passed in and is set to true by default.
+5. Give the Programmer a `completeTask` method that updates the busy property on that programmer to be false. Also give the Programmer an `acceptNewTask` method that updates the busy property on that programmer to be true.
+6. Give the Programmer an `offerNewTask` method that console logs one thing if the programmer is busy and another if the programmer is not, e.g. should initially log out `Mark can't accept any new tasks right now.` and `Mark would love to take on a new responsibility.` if the programmer is not busy.
+7. Give the Programmer `learnLanguage` and `listLanguages` methods that add new languages to the programmer and list off all languages the programmer knows.
 8. Test it out - can you create different programmers and run all the methods on them? Does each programmer maintain their own properties properly and independently of the other programmers?
-   Bonus - ES6 Syntax: Use ES6 Syntax in your answer. Feel free to add on new methods or properties to incorporate the syntax.
 
-Example:
+Note: Do not use classes; you must use prototype chaining and prototype inheritance
 
 ```JavaScript
-function Person(name, job, age) { }
-function Programmer(name, job, age, languages) { }
+const person1 = new Person("Harold", "Backend Engineer", 20);
+const programmer1 = new Programmer("Harold", "DevOps", 35, [
+  "HTML",
+  "C#",
+  "LUA",
+]);
+
+const programmer2 = new Programmer("Edwin", "janitor", 89, [
+  "HTML",
+  "SASS,Ruby",
+]);
+
+const programmer3 = new Programmer("Emmanuel", "SysOps", 31, [
+  ("HTML", "CSS", "JS", "R"),
+]);
+
+programmer1.learnLanguage("CSS");
+programmer2.learnLanguage("C++");
+programmer3.learnLanguage("JAVA");
+
+console.log(programmer1.listLanguage());
+console.log(programmer2.listLanguage());
+console.log(programmer3.listLanguage());
+
+console.log(person1);
+console.log(programmer1);
+console.log(programmer2);
+console.log(programmer3);
+person1.exercise();
+person1.fetchJob();
 ```
 
 # Submission
