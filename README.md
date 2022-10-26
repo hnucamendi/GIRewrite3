@@ -12,23 +12,16 @@
 
 # Learning Objectives
 
-- Continue building proficiency with key concepts
-  - Variables, Data Types, Type Coercion, Basic Operators and Operator Precedence
-- Understand the use of Logical Operators
-  - Boolean, If/Else, Ternary and Switch Statements
 - Become comfortable creating and working with Functions, Arrays and Objects
 - Differentiate between the terms: Objects, Properties and Methods
 - Demonstrate an understanding
-  - Logical Operators, Functions and Arrays
+  - Logical Operators, Functions and Arrays. Prototypes
 - Understand the importance and use of the following in JavaScript
   - Loops and Iteration Events, Execution Context, Hoisting, Scope and ‘this’
 - Practice advanced JavaScript concepts including
-  - Inheritance, Prototype Chain, First Class Functions, Closures, Immediately Invoked Function Expressions and Closures
+  - Inheritance, Prototype Chain, First Class Functions, Closures
 - Become comfortable working with ES6 additions including
   - Const, Let, Template Literals, Arrow functions, Destructuring, Spread Operators, Rest Parameters, Default Parameters, Maps, and Classes
-- Understand Asynchronous JavaScript
-- Make AJAX calls to 3rd party APIs using Fetch and Async/ Await
-- Practice by coding alongside of the assigned videos
 
 # Learning Resources
 

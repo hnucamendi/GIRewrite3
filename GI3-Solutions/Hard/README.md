@@ -6,9 +6,14 @@
 
 # HARD:
 
-Create two buttons in an HTML file and link it to this JavaScript file for this to work. one button turns the background color of its button square to `red` when clicked. The other button turns the background color to `blue` when clicked.
+Create either a class or a function with clousres called `patientInformation`. It should contain at least two properties `name` and `ssn`. The `name` property does not need to be private and can be fetched directly, but the `ssn` property should only be manipulated through the use of `getters` you should not be able to get the value of ssn directly from where it is defined.
 
-Note: No functions for required, use the DOM
+```JavaScript
+console.log(patient2.names); // Output: Undefined
+console.log(patient2.ssn); // Output: Undefined
+console.log(patient2.getName()); // Output: John
+console.log(patient2.getSSN()); // Output: 123-45-6789
+```
 
 # Submission
 
